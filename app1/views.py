@@ -1,10 +1,6 @@
 from django.shortcuts import render
+from .models import Trainee
 
-def home(request):
-    return render(request, 'index.html')
-
-def about(request):
-    return render(request, 'about.html')
-
-def contact(request):
-    return render(request, 'contact.html')
+def trainee_list(request):
+    trainees = Trainee.objects.all()
+    return render(request, 'app1/trainee_list.html', {'trainees': trainees})
